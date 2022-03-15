@@ -1,6 +1,7 @@
 FQBN=
 CORE=
 SERIAL=
+SKETCH=
 
 all:
 ifeq ($(FQBN),)
@@ -12,8 +13,8 @@ else ifeq ($(SERIAL,))
 	@echo "This might take the form of: \`/dev/ttyWTF\`"
 	@exit 1
 endif
-	arduino-cli compile --fqbn $(FQBN) Exercize
-	arduino-cli upload -p $(SERIAL) --fqbn $(FQBN) MyFirstSketch
+	arduino-cli compile --fqbn $(FQBN) $(SKETCH)
+	arduino-cli upload -p $(SERIAL) --fqbn $(FQBN) $(SKETCH)
 
 setup:
 	arduino-cli core update-index
